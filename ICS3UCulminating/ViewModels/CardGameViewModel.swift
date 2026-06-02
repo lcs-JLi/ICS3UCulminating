@@ -10,7 +10,7 @@ internal import Combine
 
 class CardMemoryGame: ObservableObject {
     // Shared data source for the game
-    private static let cardContents = ["A", "K", "Q", "J", "?", "🔍"]
+    private static let cardContents = ["A", "K", "Q", "J", "10", "9","8","7"]
     
     // Factory method to initialize a fresh game model
     private static func createMemoryGame() -> MemoryGame {
