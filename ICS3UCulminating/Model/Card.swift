@@ -35,20 +35,42 @@ struct Card: Identifiable {
 }
 
 
+import Foundation
+
 struct MemoryGame {
-    private(set) var cards: Array<Card>
+    private(set) var cards: [Card]
+    
+    private var indexOfTheOneAndOnlyFaceUpCard: Int? {
+        get {
+            let faceUpCardIndices = cards.indices.filter { cards[$0].isFaceUp }
+            return faceUpCardIndices.count == 1 ? faceUpCardIndices.first : nil
+        }
+        set {
+            for index in cards.indices {
+                cards[index].isFaceUp = (index == newValue)
+            }
+        }
+    }
     
     mutating func choose(_ card: Card) {
-        // This is where your core logic will go:
-        // 1. Find the chosen card in the array
-        // 2. Check if another card is already face up
-        // 3. If yes, compare them for a match
-        // 4. If no, just flip this one face up
+        if let chosenIndex = cards.firstIndex(where: { $0.id == card.id }),
+           !cards[chosenIndex].isFaceUp,
+           !cards[chosenIndex].isMatched
+        {
+            if let potentialMatchIndex = indexOfTheOneAndOnlyFaceUpCard {
+                if cards[chosenIndex].content == cards[potentialMatchIndex].content {
+                    cards[chosenIndex].isMatched = true
+                    cards[potentialMatchIndex].isMatched = true
+                }
+                cards[chosenIndex].isFaceUp = true
+            } else {
+                indexOfTheOneAndOnlyFaceUpCard = chosenIndex
+            }
+        }
     }
     
     init(numberOfPairsOfCards: Int, createCardContent: (Int) -> String) {
         cards = []
-        // Add pairs of cards to the array and shuffle them
         for pairIndex in 0..<numberOfPairsOfCards {
             let content = createCardContent(pairIndex)
             cards.append(Card(content: content))
