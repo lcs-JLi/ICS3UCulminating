@@ -8,7 +8,7 @@
 import Foundation
 
 // MODEL
-struct House: Identifiable {
+struct House: Identifiable, Equatable {
     
     // MARK: Stored properties
     // Stored properties must be provided with a value by providing an argument when creating an instance of this structure, or, be initialized with a default value

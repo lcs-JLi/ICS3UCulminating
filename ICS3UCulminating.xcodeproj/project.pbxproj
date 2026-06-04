@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		485D4F672FCDDC3E0003CE6C /* MemoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485D4F662FCDDC3E0003CE6C /* MemoryCard.swift */; };
+		485D4F692FCDDC3E0003CE6C /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485D4F682FCDDC3E0003CE6C /* MemoryGame.swift */; };
+		485D4F6B2FCDDC3E0003CE6C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 485D4F6A2FCDDC3E0003CE6C /* README.md */; };
 		485D4F512FCDDC3D0003CE6C /* ICS3UCulminatingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485D4F502FCDDC3D0003CE6C /* ICS3UCulminatingApp.swift */; };
 		485D4F532FCDDC3D0003CE6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 485D4F522FCDDC3D0003CE6C /* Assets.xcassets */; };
 		485D4F562FCDDC3D0003CE6C /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485D4F552FCDDC3D0003CE6C /* House.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		485D4F662FCDDC3E0003CE6C /* MemoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCard.swift; sourceTree = "<group>"; };
+		485D4F682FCDDC3E0003CE6C /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
+		485D4F6A2FCDDC3E0003CE6C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		485D4F4D2FCDDC3D0003CE6C /* ICS3UCulminating.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICS3UCulminating.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		485D4F502FCDDC3D0003CE6C /* ICS3UCulminatingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICS3UCulminatingApp.swift; sourceTree = "<group>"; };
 		485D4F522FCDDC3D0003CE6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +63,7 @@
 		485D4F4F2FCDDC3D0003CE6C /* ICS3UCulminating */ = {
 			isa = PBXGroup;
 			children = (
+				485D4F6A2FCDDC3E0003CE6C /* README.md */,
 				485D4F502FCDDC3D0003CE6C /* ICS3UCulminatingApp.swift */,
 				485D4F522FCDDC3D0003CE6C /* Assets.xcassets */,
 				485D4F5F2FCDDC3D0003CE6C /* RELEASE.md */,
@@ -70,6 +77,7 @@
 		485D4F542FCDDC3D0003CE6C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				485D4F662FCDDC3E0003CE6C /* MemoryCard.swift */,
 				485D4F552FCDDC3D0003CE6C /* House.swift */,
 			);
 			path = Model;
@@ -78,6 +86,7 @@
 		485D4F572FCDDC3D0003CE6C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				485D4F682FCDDC3E0003CE6C /* MemoryGame.swift */,
 				485D4F582FCDDC3D0003CE6C /* HouseListViewModel.swift */,
 			);
 			path = ViewModels;
@@ -153,6 +162,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				485D4F6B2FCDDC3E0003CE6C /* README.md in Resources */,
 				485D4F602FCDDC3D0003CE6C /* RELEASE.md in Resources */,
 				485D4F532FCDDC3D0003CE6C /* Assets.xcassets in Resources */,
 			);
@@ -165,6 +175,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				485D4F692FCDDC3E0003CE6C /* MemoryGame.swift in Sources */,
+				485D4F672FCDDC3E0003CE6C /* MemoryCard.swift in Sources */,
 				485D4F5E2FCDDC3D0003CE6C /* HouseItemView.swift in Sources */,
 				485D4F562FCDDC3D0003CE6C /* House.swift in Sources */,
 				485D4F5C2FCDDC3D0003CE6C /* HousesListView.swift in Sources */,
