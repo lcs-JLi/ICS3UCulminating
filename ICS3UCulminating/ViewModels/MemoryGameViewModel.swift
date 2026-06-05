@@ -14,24 +14,29 @@ class MemoryGameViewModel {
     
     // MARK: - Stored properties
     
+    // The list of card ranks used for the game.
+    // We make this 'static' so it can be accessed without needing an instance of the class.
+    private static let cardRanks: [String] = ["A", "K", "Q", "J", "10", "9", "8", "7"]
+    
     // This is the actual game logic instance.
     // It's private because we want the View to go through the ViewModel to change things.
-    private var model: MemoryGame<House>
+    // We are now using String for the card content.
+    private var model: MemoryGame<String>
     
     // MARK: - Computed properties
     
     // This allows the View to see the cards, but not change them directly.
-    var cards: [MemoryCard<House>] {
+    var cards: [MemoryCard<String>] {
         return model.cards
     }
     
     // MARK: - Initializer
     
     init() {
-        // We initialize the game with a factory function that provides Houses.
-        // For this example, we'll use the first 6 houses from our example list.
-        model = MemoryGame<House>(numberOfPairsOfCards: 6) { pairIndex in
-            return exampleHouseList[pairIndex]
+        // We initialize the game with 8 pairs of cards using our cardRanks array.
+        // We use 'MemoryGameViewModel.cardRanks' to access the static property.
+        model = MemoryGame<String>(numberOfPairsOfCards: 8) { pairIndex in
+            return MemoryGameViewModel.cardRanks[pairIndex]
         }
     }
     
@@ -39,14 +44,14 @@ class MemoryGameViewModel {
     
     // This is the "intent" function. When a user taps a card in the View,
     // the View calls this function to tell the Model what happened.
-    func choose(_ card: MemoryCard<House>) {
+    func choose(_ card: MemoryCard<String>) {
         model.choose(card)
     }
     
     // A helper function to start a fresh game.
     func resetGame() {
-        model = MemoryGame<House>(numberOfPairsOfCards: 6) { pairIndex in
-            return exampleHouseList[pairIndex]
+        model = MemoryGame<String>(numberOfPairsOfCards: 8) { pairIndex in
+            return MemoryGameViewModel.cardRanks[pairIndex]
         }
     }
 }
