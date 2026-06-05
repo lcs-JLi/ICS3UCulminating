@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		485D4F6D2FCDDC3E0003CE6C /* MemoryGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485D4F6C2FCDDC3E0003CE6C /* MemoryGameViewModel.swift */; };
+		485D4F6F2FCDDC3E0003CE6C /* MemoryGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485D4F6E2FCDDC3E0003CE6C /* MemoryGameView.swift */; };
 		485D4F672FCDDC3E0003CE6C /* MemoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485D4F662FCDDC3E0003CE6C /* MemoryCard.swift */; };
 		485D4F692FCDDC3E0003CE6C /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485D4F682FCDDC3E0003CE6C /* MemoryGame.swift */; };
 		485D4F6B2FCDDC3E0003CE6C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 485D4F6A2FCDDC3E0003CE6C /* README.md */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		485D4F6C2FCDDC3E0003CE6C /* MemoryGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameViewModel.swift; sourceTree = "<group>"; };
+		485D4F6E2FCDDC3E0003CE6C /* MemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameView.swift; sourceTree = "<group>"; };
 		485D4F662FCDDC3E0003CE6C /* MemoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCard.swift; sourceTree = "<group>"; };
 		485D4F682FCDDC3E0003CE6C /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		485D4F6A2FCDDC3E0003CE6C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 		485D4F572FCDDC3D0003CE6C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				485D4F6C2FCDDC3E0003CE6C /* MemoryGameViewModel.swift */,
 				485D4F682FCDDC3E0003CE6C /* MemoryGame.swift */,
 				485D4F582FCDDC3D0003CE6C /* HouseListViewModel.swift */,
 			);
@@ -95,6 +100,7 @@
 		485D4F5A2FCDDC3D0003CE6C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				485D4F6E2FCDDC3E0003CE6C /* MemoryGameView.swift */,
 				485D4F5B2FCDDC3D0003CE6C /* HousesListView.swift */,
 				485D4F5D2FCDDC3D0003CE6C /* HouseItemView.swift */,
 			);
@@ -175,6 +181,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				485D4F6F2FCDDC3E0003CE6C /* MemoryGameView.swift in Sources */,
+				485D4F6D2FCDDC3E0003CE6C /* MemoryGameViewModel.swift in Sources */,
 				485D4F692FCDDC3E0003CE6C /* MemoryGame.swift in Sources */,
 				485D4F672FCDDC3E0003CE6C /* MemoryCard.swift in Sources */,
 				485D4F5E2FCDDC3D0003CE6C /* HouseItemView.swift in Sources */,
