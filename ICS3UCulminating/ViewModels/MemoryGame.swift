@@ -14,6 +14,18 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     // The collection of cards in the game
     private(set) var cards: [MemoryCard<CardContent>]
     
+    // MARK: - Computed properties
+    
+    // Checks if every card in the deck has been matched.
+    var allCardsMatched: Bool {
+        for card in cards {
+            if card.isMatched == false {
+                return false
+            }
+        }
+        return true
+    }
+    
     // The index of the only card that is currently face up (if any)
     private var indexOfAndOnlyFaceUpCard: Int? {
         get {

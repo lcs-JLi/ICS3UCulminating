@@ -32,6 +32,14 @@ struct MemoryGameView: View {
                 .fontWeight(.bold)
                 .padding()
             
+            if viewModel.isGameOver {
+                Text("Congratulations! You won!")
+                    .font(.title)
+                    .foregroundColor(.green)
+                    .padding()
+                    .transition(.scale)
+            }
+            
             ScrollView {
                 // We use a LazyVGrid to display the cards in a neat grid.
                 LazyVGrid(columns: columns, spacing: 10) {
@@ -40,8 +48,11 @@ struct MemoryGameView: View {
                         CardView(card: card)
                             .aspectRatio(2/3, contentMode: .fit)
                             .onTapGesture {
-                                // When a card is tapped, we tell the ViewModel to "choose" it.
-                                viewModel.choose(card)
+                                // We wrap the choose function in withAnimation
+                                // so that the changes (flipping and matching) are animated.
+                                withAnimation(.easeInOut(duration: 0.5)) {
+                                    viewModel.choose(card)
+                                }
                             }
                     }
                 }
@@ -49,7 +60,9 @@ struct MemoryGameView: View {
             }
             
             Button("New Game") {
-                viewModel.resetGame()
+                withAnimation {
+                    viewModel.resetGame()
+                }
             }
             .padding()
             .buttonStyle(.borderedProminent)
@@ -62,20 +75,30 @@ struct CardView: View {
     let card: MemoryCard<String>
     
     var body: some View {
-        ZExternalCardShape(isFaceUp: card.isFaceUp, isMatched: card.isMatched) {
-            // If the card is face up, show the rank.
+        ZStack {
+            // When face up or matched, show the front side.
             if card.isFaceUp || card.isMatched {
-                Text(card.content)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.center)
-                    .padding(5)
+                ZExternalCardShape(isFaceUp: true, isMatched: card.isMatched) {
+                    Text(card.content)
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.center)
+                        .padding(5)
+                }
             } else {
-                // If face down, show a placeholder.
-                Text("?")
-                    .font(.largeTitle)
+                // When face down, show the card back.
+                ZExternalCardShape(isFaceUp: false, isMatched: card.isMatched) {
+                    Text("?")
+                        .font(.largeTitle)
+                }
             }
         }
+        // This modifier creates a 3D rotation effect.
+        // We rotate by 180 degrees when face up or matched.
+        .rotation3DEffect(
+            .degrees(card.isFaceUp || card.isMatched ? 180 : 0),
+            axis: (x: 0, y: 1, z: 0)
+        )
     }
 }
 
@@ -96,11 +119,12 @@ struct ZExternalCardShape<Content: View>: View {
         ZStack {
             let shape = RoundedRectangle(cornerRadius: 10)
             
-            if isFaceUp || isMatched {
+            if isFaceUp {
                 // Layer the white background, the border, and the content.
                 shape.fill(.white)
                 shape.strokeBorder(lineWidth: 3)
-                content
+                // We flip the content back because the whole card was rotated 180 degrees.
+                content.rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
             } else {
                 // Show the card back.
                 shape.fill(.red)

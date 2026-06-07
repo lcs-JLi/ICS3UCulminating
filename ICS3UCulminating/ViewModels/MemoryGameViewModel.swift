@@ -30,6 +30,11 @@ class MemoryGameViewModel {
         return model.cards
     }
     
+    // This tells the View if the game has been won.
+    var isGameOver: Bool {
+        return model.allCardsMatched
+    }
+    
     // MARK: - Initializer
     
     init() {
