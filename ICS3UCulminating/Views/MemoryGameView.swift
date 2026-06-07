@@ -32,14 +32,6 @@ struct MemoryGameView: View {
                 .fontWeight(.bold)
                 .padding()
             
-            if viewModel.isGameOver {
-                Text("Congratulations! You won!")
-                    .font(.title)
-                    .foregroundColor(.green)
-                    .padding()
-                    .transition(.scale)
-            }
-            
             Text("Turns: \(viewModel.turnCount)")
                 .font(.headline)
                 .padding(.bottom)
@@ -70,6 +62,24 @@ struct MemoryGameView: View {
             }
             .padding()
             .buttonStyle(.borderedProminent)
+        }
+        // We use an overlay for the win message so it doesn't push the cards down.
+        .overlay {
+            if viewModel.isGameOver {
+                VStack {
+                    Text("Congratulations!")
+                        .font(.largeTitle)
+                        .fontWeight(.black)
+                    Text("You won in \(viewModel.turnCount) turns!")
+                        .font(.title2)
+                }
+                .padding(40)
+                .background(.ultraThinMaterial) // A nice blurred background
+                .cornerRadius(20)
+                .shadow(radius: 10)
+                .foregroundColor(.green)
+                .transition(.scale.combined(with: .opacity))
+            }
         }
     }
 }
