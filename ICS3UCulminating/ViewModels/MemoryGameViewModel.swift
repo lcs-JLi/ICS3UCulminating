@@ -35,6 +35,11 @@ class MemoryGameViewModel {
         return model.allCardsMatched
     }
     
+    // This tells the View how many turns have been taken.
+    var turnCount: Int {
+        return model.turnCount
+    }
+    
     // MARK: - Initializer
     
     init() {
@@ -51,6 +56,7 @@ class MemoryGameViewModel {
     // the View calls this function to tell the Model what happened.
     func choose(_ card: MemoryCard<String>) {
         model.choose(card)
+        print("Turn count is now: \(model.turnCount)")
     }
     
     // A helper function to start a fresh game.

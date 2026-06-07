@@ -14,6 +14,9 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     // The collection of cards in the game
     private(set) var cards: [MemoryCard<CardContent>]
     
+    // Tracks the number of turns taken (one turn = flipping two cards)
+    private(set) var turnCount: Int = 0
+    
     // MARK: - Computed properties
     
     // Checks if every card in the deck has been matched.
@@ -87,6 +90,10 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
             
             // Check if there is already one card face up
             if let potentialMatchIndex = indexOfAndOnlyFaceUpCard {
+                
+                // Increment the turn count because the user has now flipped a pair.
+                turnCount += 1
+                
                 // Check if the chosen card matches the face-up card
                 if cards[chosenIndex].content == cards[potentialMatchIndex].content {
                     cards[chosenIndex].isMatched = true

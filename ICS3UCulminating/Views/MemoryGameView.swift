@@ -40,6 +40,10 @@ struct MemoryGameView: View {
                     .transition(.scale)
             }
             
+            Text("Turns: \(viewModel.turnCount)")
+                .font(.headline)
+                .padding(.bottom)
+            
             ScrollView {
                 // We use a LazyVGrid to display the cards in a neat grid.
                 LazyVGrid(columns: columns, spacing: 10) {
